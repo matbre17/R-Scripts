@@ -7,9 +7,6 @@ y1 <- c(0.9370,0.9399,0.9458,0.9714,0.9543,0.9488,0.9566,0.9559,0.9621,0.9480,
 
 my.data <- data.frame(x1,y1) 
 
-mean.y <- mean(y)
-sd.y <- sd(y)
-
 XmR_Plot <- 
   ggplot(my.data, aes(x = x1, y = y1)) + #init ggplot
   geom_point(size = 3) + #Add points and adjust point sizes
