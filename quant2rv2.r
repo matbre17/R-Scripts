@@ -8,7 +8,7 @@ compounds <- c("9,10-OH-9,10-HPHN", "1,2-OH-1,2-HPHN","COOHs",
 
 #Data cleaning 
 ########################################################################
-data <- data.frame(read.csv('270123.csv', header = F)) #load the data
+data <- data.frame(read.csv('QuantDoc.csv', header = F)) #load the data
 #%>% c(data[1,] == "BPA-d16 (ISTD) Results" )
 
 col.names <- unlist(gsub('Method', '', data[1,])) #Cleaning up row names 
@@ -18,11 +18,6 @@ col.names <- unlist(gsub(' ', '', col.names)) #data treatment later on
 
 type.index <- match('Type',c(unlist(filter(data[2,])))) #locate the column for type of sample
 name.index <- match('Name',c(unlist(filter(data[2,])))) 
-
-
-
-#unlist(unique(c(data[1,]))) %>% type.index
-
 
 
 for (i in 1:(length(col.names) -1 )){
@@ -62,5 +57,5 @@ df.dat$Type <- data[,type.index][3:length(data[,type.index])]
 df.dat$Name <- data[,name.index][3:length(data[,name.index])]
 
 
-write_xlsx(df.dat,"270123.xlsx")
+write_xlsx(df.dat,"ExcelDoc.xlsx")
 
